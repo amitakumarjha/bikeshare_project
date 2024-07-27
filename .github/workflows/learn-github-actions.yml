@@ -50,12 +50,14 @@ jobs:
     needs: [train, test]
     runs-on: ubuntu-latest
     steps:
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.10'
     - name: Run Black
-      run: |
-        black --check .
+      run: black --check .
     - name: Run Pylint
-      run: |
-        pylint bikeshare_project/bikeshare_model/*.py
+      run: pylint bikeshare_project/bikeshare_model/*.py
         
   build:
     needs: [train, test]
