@@ -55,7 +55,7 @@ jobs:
     - name: Run Black
       run: black --check .
     - name: Run Pylint
-      run: pylint bikeshare_project/bikeshare_model/*.py
+      run: find . -name "*.py" | xargs pylint
         
   build:
     needs: [train, test]
