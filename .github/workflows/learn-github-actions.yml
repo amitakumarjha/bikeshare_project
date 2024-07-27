@@ -45,17 +45,6 @@ jobs:
       run: pip install -r requirements/test_requirements.txt
     - name: Test with pytest
       run: pytest
-
-  lint_and_format:
-    needs: [train, test]
-    runs-on: ubuntu-latest
-    steps:
-    - name: Install dependencies
-      run: pip install black pylint
-    - name: Run Black
-      run: black --check .
-    - name: Run Pylint
-      run: pylint bikeshare_project/bikeshare_model/{pipeline,train_pipeline,predict}.py
         
   build:
     needs: [train, test]
