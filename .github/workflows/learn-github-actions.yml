@@ -55,7 +55,7 @@ jobs:
     - name: Run Black
       run: black --check .
     - name: Run Pylint
-      run: find . -name "*.py" | xargs pylint
+      run: pylint $(git ls-files '*.py')
         
   build:
     needs: [train, test]
