@@ -46,6 +46,17 @@ jobs:
     - name: Test with pytest
       run: pytest
 
+  lint_and_format:
+    needs: [train, test]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Run Black
+      run: |
+        black --check .
+    - name: Run Pylint
+      run: |
+        pylint bikeshare_project/bikeshare_model/*.py
+        
   build:
     needs: [train, test]
     runs-on: ubuntu-latest
@@ -100,4 +111,4 @@ jobs:
       run: docker push $DOCKER_USER/bikeshare-fastapi
 
     - name: Logout to Docker hub
-      run: docker logout
+  run: docker logout
