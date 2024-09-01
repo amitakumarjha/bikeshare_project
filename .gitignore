@@ -1,0 +1,16 @@
+# Build artifacts and virtual environment
+build/
+dist/
+myenv/
+
+# Temporary files
+*.pyc
+*.swp
+
+# IDE-specific files
+*.DS_Store
+.vscode/
+
+# Sensitive data
+secrets.json
+passwords.txt
